@@ -36,12 +36,12 @@ import javax.swing.border.MatteBorder;
  */
 
 
-public class Glossary  extends JPanel implements ActionListener{
+public class GlossaryInput  extends JPanel implements ActionListener{
 
 	private static final long serialVersionUID = 1L;
 
 
-	public Glossary() {
+	public GlossaryInput() {
 		
 		JPanel holder = new JPanel(new GridBagLayout());
 		GridBagConstraints c = new GridBagConstraints();
@@ -298,7 +298,7 @@ public void actionPerformed(ActionEvent e2) {
 	
 	//make frame scroll-able if matrix is large enough
 	JPanel container = new JPanel();
-	container.add(new Glossary());
+	container.add(new GlossaryInput());
 	
 	JScrollPane scrPane = new JScrollPane(container);
 	scrPane.getVerticalScrollBar().setUnitIncrement(16);
@@ -311,7 +311,7 @@ public void actionPerformed(ActionEvent e2) {
         @Override
         public void windowClosing(WindowEvent e)
         {
-        	UploadFileInterface.frame.setVisible(true);
+        	EnterWordInterface.frame.setVisible(true);
             e.getWindow().dispose();
         }
     }); 

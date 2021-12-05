@@ -13,7 +13,7 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
-public class AssociatedWordsInterface extends JPanel implements ActionListener{
+public class AssociatedWordsUploadInterface extends JPanel implements ActionListener{
 
 	private static final long serialVersionUID = 1L;
 
@@ -29,7 +29,7 @@ public class AssociatedWordsInterface extends JPanel implements ActionListener{
     public SwingWorker<Void, Void> mySwingWorker;
     public JFrame frame;
     
-    public AssociatedWordsInterface() {
+    public AssociatedWordsUploadInterface() {
         setLayout(new BorderLayout());
         
         //Panel to hold starting components
@@ -756,7 +756,7 @@ public class AssociatedWordsInterface extends JPanel implements ActionListener{
 		
 		//make frame scroll-able if matrix is large enough
     	JPanel container = new JPanel();
-    	container.add(new AssociatedWordsInterface());
+    	container.add(new AssociatedWordsUploadInterface());
     	JScrollPane scrPane = new JScrollPane(container);
     	scrPane.getVerticalScrollBar().setUnitIncrement(16);
     	scrPane.getHorizontalScrollBar().setUnitIncrement(16);
@@ -765,15 +765,8 @@ public class AssociatedWordsInterface extends JPanel implements ActionListener{
         frame = new JFrame("Words Associated To A Parikh Matrix");
         frame.add(scrPane);
         frame.pack();
-        frame.addWindowListener(new WindowAdapter(){
-            @Override
-            public void windowClosing(WindowEvent e)
-            {
-            	EnterWordInterface.frame.setVisible(true);
-                e.getWindow().dispose();
-            }
-        });  
-		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 		

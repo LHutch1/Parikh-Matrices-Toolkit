@@ -12,9 +12,11 @@ import java.util.List;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 
-public class IsParikhInterface extends JPanel implements ActionListener{
+public class IsParikhUploadInterface extends JPanel implements ActionListener{
 
 	private static final long serialVersionUID = 1L;
 
@@ -31,7 +33,7 @@ public class IsParikhInterface extends JPanel implements ActionListener{
     
     public JFrame frame;
     
-    public IsParikhInterface() {
+    public IsParikhUploadInterface() {
         setLayout(new BorderLayout());
         
         //Panel to hold starting components
@@ -769,7 +771,7 @@ public class IsParikhInterface extends JPanel implements ActionListener{
 		
 		//make frame scroll-able if matrix is large enough
     	JPanel container = new JPanel();
-    	container.add(new IsParikhInterface());
+    	container.add(new IsParikhUploadInterface());
     	JScrollPane scrPane = new JScrollPane(container);
     	scrPane.getVerticalScrollBar().setUnitIncrement(16);
     	scrPane.getHorizontalScrollBar().setUnitIncrement(16);
@@ -778,15 +780,8 @@ public class IsParikhInterface extends JPanel implements ActionListener{
         frame = new JFrame("Decide If The Matrix Is A Parikh Matrix");
         frame.add(scrPane);
         frame.pack();
-        frame.addWindowListener(new WindowAdapter(){
-            @Override
-            public void windowClosing(WindowEvent e)
-            {
-            	EnterWordInterface.frame.setVisible(true);
-                e.getWindow().dispose();
-            }
-        });  
-		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 		
