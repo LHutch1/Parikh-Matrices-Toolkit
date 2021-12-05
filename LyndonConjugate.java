@@ -1,4 +1,3 @@
-
 public class LyndonConjugate {
 	public int[] lyndonConj(int[] w) {
 		int size = w.length;
@@ -13,36 +12,16 @@ public class LyndonConjugate {
 			search_word[n] = w[n];
 			search_word[n+size] = w[n];
 		}
-		while (k < size+size) {
+		while (k < size+size-1) {
 			i = k+1;
 			j = k+2;
 			while (true) {
-				if (search_word[i] < search_word[j]) {
-					i = k+1;
-					j = j+1;
-					if (j-1-k == size+size && j - i == size+size) {
-						for (int a=0; a<size; a++) {
-							output[a] = search_word[k+1+a];
-						}
-						return output;
-					}
-				}
-				else if (search_word[i] == search_word[j]) {
-					i = i+1;
-					j = j+1;
-					if (j-1-k == size+size && j - i == size+size) {
-						for (int a=0; a<size; a++) {
-							output[a] = search_word[k+1+a];
-						}
-						return output;
-					}
-				}
-				else if (search_word[i] > search_word[j] || j == size + 1) {
+				if (j == size+size || search_word[i] > search_word[j] ) {
 					while (k < i) {
 						k = k + (j - i);
 						fact[fact_count] = k;
 						fact_count = fact_count + 1;
-						if (j-1-k == size+size && j - i == size+size) {
+						if (j-1-k == size && ((j - i) % size == 0)) {
 							for (int a=0; a<size; a++) {
 								output[a] = search_word[k+1+a];
 							}
@@ -51,9 +30,28 @@ public class LyndonConjugate {
 					}
 					break;
 				}
+				else if (search_word[i] == search_word[j]) {
+					i = i+1;
+					j = j+1;
+					if (j-1-k == size && ((j - i) % size == 0)) {
+						for (int a=0; a<size; a++) {
+							output[a] = search_word[k+1+a];
+						}
+						return output;
+					}
+				}
+				else if (search_word[i] < search_word[j]) {
+					i = k+1;
+					j = j+1;
+					if (j-1-k == size && ((j - i) % size == 0)) {
+						for (int a=0; a<size; a++) {
+							output[a] = search_word[k+1+a];
+						}
+						return output;
+					}
+				}
 			}
 		}
-		return w;
+		return output;
 	}
-	 
 }

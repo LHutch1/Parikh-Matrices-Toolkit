@@ -6,8 +6,6 @@ import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
@@ -111,7 +109,7 @@ public class Glossary  extends JPanel implements ActionListener{
 		JTextArea lDistinctInfo = new JTextArea("Two words are L-distinct if they share the same Parikh matrix, but have different L-Parikh matrices.");
 		JTextArea lAmiableInfo = new JTextArea("Two words are L-amiable if they share the same Parikh and L-Parikh matrices.");
 		JTextArea lDistinguishableInfo = new JTextArea("A Parikh matrix is L-distinguishable if it describes at least two distinct words whose respective L-Parikh matrices are different.");
-		JTextArea pParikhMatrixInfo = new JTextArea("Let S be a set that contains letters in your given alphabet. We define the P-Parikh matrix of a word with respect to S as the Parikh matrix of the word obtained from the following. For each letter in your word, if that letter is in S, it remains, otherwise replace that letter with the empty word. Now map your letters to a new alphabet that maintains their order and results in all letters being consecutive. (Example - for the set S={a,c,e} and the word 'cabbcced', we first remove letters not in S to get 'cacce'. Now map to the new alphabet to get 'babbc'.)");
+		JTextArea pParikhMatrixInfo = new JTextArea("Let S be a set that contains letters in your given alphabet. We define the P-Parikh matrix of a word with respect to S as the Parikh matrix of the word obtained from the following. For each letter in your word, if that letter is in S, it remains, otherwise replace that letter with the empty word.");
 		JTextArea pDistinctInfo = new JTextArea("Two words are P-distinct if they share the same Parikh matrix, but there exists a set S such that they have different P-Parikh matrices.");
 		JTextArea pAmiableInfo = new JTextArea("Two words are P-amiable if they share the same Parikh matrix and there does not exist a set S such that they have different P-Parikh matrices.");
 		JTextArea pDistinguishableInfo = new JTextArea("A Parikh matrix is P-distinguishable if it describes at least two distinct words whose respective P-Parikh matrices are different for some set S.");
@@ -307,14 +305,6 @@ public void actionPerformed(ActionEvent e2) {
 	//frame formatting
     JFrame frame = new JFrame("Glossary");
     frame.add(scrPane);
-    frame.addWindowListener(new WindowAdapter(){
-        @Override
-        public void windowClosing(WindowEvent e)
-        {
-        	UploadFileInterface.frame.setVisible(true);
-            e.getWindow().dispose();
-        }
-    }); 
     frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     frame.pack();
     frame.setLocationRelativeTo(null);
