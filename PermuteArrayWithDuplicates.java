@@ -11,12 +11,12 @@ public class PermuteArrayWithDuplicates {
 	//public static List<List<Integer>> resultlist;
 	
 	public List<List<Integer>> permute(int[] arr){
-		String convertWord = new String(""); //part of runtime testing
-		ParikhMatrixCalculator cPM = new ParikhMatrixCalculator(); //part of runtime testing
-		for (int j=0;j<arr.length;j++) { //part of runtime testing
-			convertWord = convertWord + cPM.getCharForNumber(arr[j]); //part of runtime testing
-		} //part of runtime testing
-		long startTime = System.nanoTime();  //part of runtime testing
+		//String convertWord = new String(""); //part of runtime testing
+		//ParikhMatrixCalculator cPM = new ParikhMatrixCalculator(); //part of runtime testing
+		//for (int j=0;j<arr.length;j++) { //part of runtime testing
+		//	convertWord = convertWord + cPM.getCharForNumber(arr[j]); //part of runtime testing
+		//} //part of runtime testing
+		//long startTime = System.nanoTime();  //part of runtime testing
 		
 		List<List<Integer>> list = new ArrayList<>();
 		int max = arr[0]; 
@@ -27,8 +27,8 @@ public class PermuteArrayWithDuplicates {
 		}
 		list=algorithm(list, new ArrayList<>(), arr,new boolean[arr.length], max);
 		
-		long estimatedTime = System.nanoTime() - startTime; //part of runtime testing
-		System.out.println(estimatedTime); //part of runtime testing
+		//long estimatedTime = System.nanoTime() - startTime; //part of runtime testing
+		//System.out.println(estimatedTime); //part of runtime testing
 		
 		return list;
 	}

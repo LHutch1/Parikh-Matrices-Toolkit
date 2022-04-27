@@ -276,7 +276,7 @@ public class IsParikhInterface extends JPanel {
 
 						//now find all permutations of firstWord
 						PermuteArrayWithDuplicates perm = new PermuteArrayWithDuplicates();
-						List<List<Integer>> permute = perm.permuteOld(firstWord);
+						List<List<Integer>> permute = perm.permute(firstWord);
 
 						//setProgress(5);
 						if (Home.mySwingWorker.isCancelled()) {
@@ -560,7 +560,7 @@ public class IsParikhInterface extends JPanel {
 
 						//now find all permutations of firstWord
 						PermuteArrayWithDuplicates perm = new PermuteArrayWithDuplicates();
-						List<List<Integer>> permute = perm.permuteOld(firstWord);
+						List<List<Integer>> permute = perm.permute(firstWord);
 
 						//setProgress(5);
 						if (Home.mySwingWorker.isCancelled()) {
